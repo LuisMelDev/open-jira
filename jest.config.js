@@ -11,6 +11,7 @@ module.exports = {
         "!<rootDir>/.next/**",
         "!<rootDir>/*.config.js",
         "!<rootDir>/coverage/**",
+        "!<rootDir>/**/index.ts",
     ],
     moduleNameMapper: {
         // Handle CSS imports (with CSS modules)
@@ -29,8 +30,24 @@ module.exports = {
     },
     // Add more setup options before each test is run
     // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-    testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
+    testPathIgnorePatterns: [
+        "node_modules",
+        "test-config",
+        "interfaces",
+        "jestGlobalMocks.ts",
+        ".module.ts",
+        "<rootDir>/src/app/main.ts",
+        ".mock.ts",
+    ],
     testEnvironment: "jsdom",
+    coverageThreshold: {
+        global: {
+            branches: 90,
+            functions: 90,
+            lines: 90,
+            statements: 90,
+        },
+    },
     transform: {
         // Use babel-jest to transpile tests with the next/babel preset
         // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
