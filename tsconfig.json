@@ -20,7 +20,7 @@
             "themes/*": ["themes/*"],
             "styles/*": ["styles/*"],
             "interfaces/*": ["interfaces/*"],
-            "api/*": ["api/*"]
+            "context/*": ["context/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

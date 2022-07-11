@@ -14,6 +14,8 @@ module.exports = {
         "!<rootDir>/**/index.ts",
         "!pages/**",
         "!themes/**",
+        "!context/**",
+        "!interfaces/**",
     ],
     moduleNameMapper: {
         // Handle CSS imports (with CSS modules)
@@ -41,6 +43,7 @@ module.exports = {
         "<rootDir>/src/app/main.ts",
         ".mock.ts",
     ],
+    modulePaths: ["<rootDir>"],
     testEnvironment: "jsdom",
     coverageThreshold: {
         global: {

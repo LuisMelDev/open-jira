@@ -1,12 +1,8 @@
+/* eslint-disable no-undef */
 module.exports = {
     "./components/**/**.{ts,tsx}": files => [
-        `yarn eslint --fix ${filenames.join(" ")}`,
-        `yarn prettier --write ${filenames.join(" ")}`,
-        `jest ${files.join(
-            ","
-        )} --bail --coverage --onlyChanged --silent --noStackTrace --verbose`,
+        `yarn eslint --fix ${files.join(" ")}`,
+        `yarn prettier --write ${files.join(" ")}`,
+        `jest --bail --coverage --onlyChanged --passWithNoTests`,
     ],
-    "package.json": ["format-package -w"],
-    "**/*.(md|json)": filenames =>
-        `yarn prettier --write ${filenames.join(" ")}`,
 };

@@ -12,15 +12,22 @@ module.exports = {
         browser: true,
         node: true,
         es6: true,
+        jest: true,
     },
 
     settings: {
         react: {
             version: "detect",
         },
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"],
+        },
         "import/resolver": {
+            typescript: {
+                project: ["tsconfig.json"],
+            },
             node: {
-                extensions: [".ts", ".tsx"],
+                project: ["tsconfig.json"],
             },
         },
     },
@@ -35,7 +42,7 @@ module.exports = {
         "plugin:prettier/recommended",
         "plugin:sonarjs/recommended",
         "plugin:security/recommended",
-        "plugin:react-hooks/recommended",
+        // "plugin:react-hooks/recommended",
     ],
 
     rules: {
