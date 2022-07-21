@@ -6,6 +6,7 @@ import { uiReducer } from "./uiReducer";
 
 const UI_INITIAL_STATE: UIState = {
     sideMenuOpen: false,
+    isDragging: false,
 };
 
 export const UIProvider: FC<{ children: ReactNode }> = ({ children }) => {
@@ -15,11 +16,21 @@ export const UIProvider: FC<{ children: ReactNode }> = ({ children }) => {
         dispatch({ type: "UI - SIDEBAR_TOGGLE" });
     };
 
+    const onDragStart = () => {
+        dispatch({ type: "UI - DRAG_START" });
+    };
+
+    const onDragEnd = () => {
+        dispatch({ type: "UI - DRAG_END" });
+    };
+
     return (
         <UIContext.Provider
             value={{
                 ...state,
                 onToggleSideMenu,
+                onDragStart,
+                onDragEnd,
             }}
         >
             {children}
